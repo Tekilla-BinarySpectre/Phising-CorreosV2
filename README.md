@@ -17,7 +17,7 @@ Características Páginas de inicio de sesión más recientes y actualizadas. Ap
 
 Instalación Simplemente, clona este repositorio.
 
-git clone https://github.com/Tekilla-BinarySpectre/Phising-gmail-y-correos.git
+git clone https://github.com/Tekilla-BinarySpectre/Phising-CorreosV2.git
 
 Ahora vaya al directorio clonado y ejecute
 
