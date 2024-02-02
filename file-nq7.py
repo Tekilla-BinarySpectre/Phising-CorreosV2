@@ -85,3 +85,28 @@ def phishing_outlook():
         server.starttls()
         server.login(sender_email, sender_password)
         server.sendmail(sender_email, target
+def phishing_outlook():
+    print(Colors.GREEN + "¡Phishing de Outlook seleccionado!" + Colors.END)
+    sender_email = input("Ingresa tu dirección de correo electrónico: ")
+    sender_password = input("Ingresa tu contraseña: ")
+    target_email = input("Ingresa la dirección de correo electrónico del objetivo: ")
+    subject = input("Ingresa el asunto del correo: ")
+    body = input("Ingresa el cuerpo del correo: ")
+
+    msg = MIMEMultipart()
+    msg['From'] = sender_email
+    msg['To'] = target_email
+    msg['Subject'] = subject
+
+    msg.attach(MIMEText(body, 'plain'))
+
+    try:
+        server = smtplib.SMTP('smtp.office365.com', 587)
+        server.ehlo()
+        server.starttls()
+        server.login(sender_email, sender_password)
+        server.sendmail(sender_email, target_email, msg.as_string())
+        server.close()
+        print(Colors.GREEN + "Correo enviado con éxito." + Colors.END)
+    except:
+        print(Colors.FAIL + "Error al enviar el correo. Verifica tus credenciales y asegúrate de tener acceso al servidor SMTP de Outlook." + Colors.END)
